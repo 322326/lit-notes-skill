@@ -1,8 +1,3 @@
----
-name: "lit-notes"
-description: "Read papers from Zotero, create structured Obsidian literature notes with 6 files: overview, quick summary, deep reading, topic-split notes, reproduction guide, and Xmind-compatible mindmap. Use when user says \"整理文献笔记\", \"精读文献\", \"zotero到obsidian\", or similar."
----
-
 # Lit-Notes: Zotero论文精读 → Obsidian结构化文献笔记
 
 ## 触发条件
@@ -36,7 +31,7 @@ description: "Read papers from Zotero, create structured Obsidian literature not
 在 Obsidian 目标文件夹下创建：
 ```
 {论文标题}/
-├── 01_总览.md
+├── 01_{论文标题}.md
 ├── 02_快速摘要.md
 ├── 03_精读笔记.md
 ├── 04_分主题笔记/
@@ -49,8 +44,8 @@ description: "Read papers from Zotero, create structured Obsidian literature not
 
 ---
 
-#### 01_总览.md
-**作用**：导航枢纽，串联所有子笔记
+#### 01_{论文标题}.md
+**作用**：导航枢纽，串联所有子笔记。用论文全名命名，使Obsidian关系图谱中该节点显示为论文标题而非"总览"
 **内容**：
 - frontmatter：title, author, year, institution, degree, discipline, zotero, tags
 - `# {论文标题}`
@@ -153,13 +148,13 @@ description: "Read papers from Zotero, create structured Obsidian literature not
 3. **批判性**：03_精读笔记的"不足与展望"部分必须包含个人评述，不能只列原文自述
 4. **可操作性**：05_论文复现的参数和步骤必须具体到可以照着做
 5. **可导入性**：06_思维导图必须用纯文本，确保Xmind能解析
-6. **链接正确**：01_总览的wiki链接必须指向实际存在的文件名
+6. **链接正确**：01_{论文标题}的wiki链接必须指向实际存在的文件名
 
 ## 文件命名规范
 - 用数字前缀 `0X_` 控制排序
 - 描述用中文
 - 分主题笔记文件夹固定命名为 `04_分主题笔记`
-- 主笔记文件名为 `01_总览.md`（不要和上级文件夹名重复）
+- 主笔记文件名为 `01_{论文标题}.md`（用论文全名，使Obsidian关系图谱中该节点显示为论文标题而非"总览"）
 
 ## 特殊情况处理
 
@@ -177,10 +172,9 @@ description: "Read papers from Zotero, create structured Obsidian literature not
 
 ### 用户已有该论文的笔记
 - 先询问是覆盖还是补充
-- 如果补充，只生成缺失的文件，同时更新01_总览的wiki链接
+- 如果补充，只生成缺失的文件，同时更新01_{论文标题}的wiki链接
 
 ## 后续迭代
 每次遇到新的论文类型或用户反馈，更新此skill：
 - 用 `save_skill` 的 `overwrite: true` 覆盖
 - 在skill末尾记录迭代日志（日期+变更内容）
-
